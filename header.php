@@ -46,6 +46,7 @@ if (isset($_SESSION['logout_message'])) {
                 <li><a href="register.php" class="btn btn-primary">Get Started</a></li>
             <?php else: ?>
                 <li><a href="community.php">Community</a></li>
+                <li><a href="chatbot.php"><i class="fas fa-robot mr-1"></i>AI Assistant</a></li>
                 <li>
                     <?php
                     // Determine dashboard link based on user role
