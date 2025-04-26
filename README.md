@@ -58,9 +58,6 @@ VidyaSathi is a comprehensive educational platform designed to connect students 
 4. Upload and share educational resources
 5. Participate in discussions
 
-## Screenshots
-
-[Include screenshots of key features here]
 
 ## Contributing
 
