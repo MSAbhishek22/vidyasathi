@@ -1,68 +1,147 @@
-# 🎓 VidyaSathi - Your Learning Companion
+# 📚 VidyaSathi – Empowering the Educational Community
 
-**Connect, Learn, Grow Together**
+![Made with PHP](https://img.shields.io/badge/Made%20with-PHP-blue)
+![License MIT](https://img.shields.io/badge/License-MIT-green)
+![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-red)
+![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen)
 
-VidyaSathi is a dynamic educational platform that brings students and educators together in one vibrant online community. Whether you're studying for exams, sharing knowledge, or seeking help, VidyaSathi has your back!
+---
 
-## ✨ What Makes VidyaSathi Special
+**VidyaSathi** is a dynamic educational platform that brings students and educators together in one vibrant online community. Whether you're studying for exams, sharing knowledge, or seeking help, VidyaSathi has your back!
 
-- **🔐 Simple Sign-in & Registration** - Quick access with secure authentication
-- **👤 Personalized Profiles** - Show your academic journey and achievements
-- **📚 Resource Library** - Share and download study materials, notes, and guides
-- **💬 Interactive Forums** - Ask questions, solve doubts, and help fellow students
-- **📝 Exam Preparation** - Access previous year question papers (PYQs)
-- **🎬 Video Learning** - Watch educational content from trusted sources
-- **📱 Use Anywhere** - Works perfectly on your phone, tablet, or computer
+---
 
-## 🛠️ Built With
+## 🚀 Live Demo
+
+🌐 Coming soon!  
+_(You can host the project on your local server via XAMPP for now.)_
+
+---
+
+## 📑 Table of Contents
+
+- [Features](#-features)
+- [Technologies Used](#-technologies-used)
+- [Installation Guide](#-installation-guide)
+- [Configuration](#-configuration)
+- [How to Use](#-how-to-use)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Contact](#-contact)
+
+---
+
+## 🚀 Features
+
+- 🔐 **User Authentication**  
+  Secure login and registration with role-based access (Student, Senior, Moderator, Admin)
+
+- 👤 **Profile Management**  
+  Customizable profiles with academic details and profile pictures
+
+- 📂 **Educational Resources**  
+  Upload, download, and access study materials, notes, and curated content
+
+- 💬 **Community Forum**  
+  Engage in meaningful discussions with nested comment support
+
+- 📚 **Previous Year Questions (PYQs)**  
+  Access and contribute past exam questions for better preparation
+
+- 🎥 **Video Tutorials**  
+  Curated educational video content for enhanced learning
+
+- 📱 **Responsive Design**  
+  Seamless experience across mobile, tablet, and desktop
+
+---
+
+## 🛠️ Technologies Used
 
 - **Frontend**: HTML, CSS, JavaScript, Tailwind CSS
 - **Backend**: PHP
 - **Database**: MySQL
-- **Server**: XAMPP
-
-## 🚀 Quick Start Guide
-
-1. **Get the code**
-
-   ```
-   git clone https://github.com/MSAbhishek22/vidyasathi.git
-   ```
-
-2. **Set it up**
-
-   - Place in XAMPP htdocs: `C:\xampp\htdocs\vidyasathi`
-   - Start XAMPP (Apache + MySQL)
-   - Create database named 'vidyasathi'
-   - Import the SQL file from the database folder
-
-3. **Launch the app**
-
-   ```
-   http://localhost/vidyasathi
-   ```
-
-4. **Start exploring!**
-   - Create your account
-   - Set up your profile
-   - Connect with your educational community
-
-## ⚙️ Configuration
-
-Database settings are in `db.php` and `config.php` - adjust as needed.
-
-## 🤝 Join Our Community
-
-We welcome contributions! Have an idea to make VidyaSathi better? Submit a pull request or share your feedback.
-
-## 📄 License
-
-VidyaSathi is open source under the MIT License.
-
-## 📞 Need Help?
-
-Contact us anytime with questions or suggestions.
+- **Server Environment**: XAMPP
 
 ---
 
-✨ **VidyaSathi** - Empowering education through community ✨
+## ⚙️ Installation Guide
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/MSAbhishek22/vidyasathi.git
+   ```
+
+2. **Move to XAMPP's htdocs Directory**
+
+   ```bash
+   C:\xampp\htdocs\vidyasathi
+   ```
+
+3. **Start Services**
+
+   - Open XAMPP Control Panel
+   - Start **Apache** and **MySQL**
+
+4. **Setup the Database**
+
+   - Open **phpMyAdmin** (http://localhost/phpmyadmin)
+   - Create a database named **vidyasathi**
+   - Import the `.sql` file from the `database/` directory
+
+5. **Access the Application**
+   ```bash
+   http://localhost/vidyasathi
+   ```
+
+---
+
+## 🔧 Configuration
+
+- Database settings are located in:
+  - `db.php`
+  - `config.php`
+- Update credentials according to your local environment if needed.
+
+---
+
+## ✨ How to Use
+
+- Register and create your profile.
+- Log in and explore the dashboard.
+- Upload notes, PYQs, and video links.
+- Engage with the community through forums and comments.
+- Share resources and collaborate.
+
+---
+
+## 🤝 Contributing
+
+We believe **great communities build great platforms**.  
+Contributions, feature suggestions, and pull requests are warmly welcome! 💬
+
+To contribute:
+
+- Fork the project
+- Create your feature branch (`git checkout -b feature/FeatureName`)
+- Commit your changes (`git commit -m 'Add FeatureName'`)
+- Push to the branch (`git push origin feature/FeatureName`)
+- Open a Pull Request 🚀
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 📬 Contact
+
+For any queries, ideas, or collaborations, reach out at:  
+📧 **msabhishekanni10@gmail.com**
+
+---
+
+© 2025 VidyaSathi | All Rights Reserved.
