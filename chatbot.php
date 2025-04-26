@@ -358,7 +358,7 @@ include 'header.php';
     const voiceOptions = document.getElementById("voice-options");
 
     // API endpoint - point to the Flask server
-    const apiEndpoint = "http://192.168.137.16:5000/chat";
+    const apiEndpoint = "http://localhost:5000/chat";
 
     let voiceEnabled = false;
     let isMuted = false;
