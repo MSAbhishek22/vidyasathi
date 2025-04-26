@@ -1,0 +1,50 @@
+# XAMPP specific
+/uploads/*
+!/uploads/.gitkeep
+
+# Configuration files with sensitive data
+/config_local.php
+.env
+
+# Logs
+/logs
+*.log
+
+# Temporary files
+/tmp
+/temp
+*.tmp
+
+# Dependency directories
+/vendor
+/node_modules
+
+# IDE specific files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Database dumps
+*.sql
+*.sqlite
+
+# User uploaded content
+/uploads/profiles/*
+!/uploads/profiles/.gitkeep
+/uploads/notes/*
+!/uploads/notes/.gitkeep
+/uploads/assignments/*
+!/uploads/assignments/.gitkeep
+
+# Cache files
+*.cache 
