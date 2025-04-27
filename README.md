@@ -1,147 +1,136 @@
-# 📚 VidyaSathi – Empowering the Educational Community
 
-![Made with PHP](https://img.shields.io/badge/Made%20with-PHP-blue)
-![License MIT](https://img.shields.io/badge/License-MIT-green)
-![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-red)
+
+
+---
+# 🚀 Project Title
+
+# 🚀 VidyaSathi – Learn, Collaborate, and Grow Together
+
+![Made with PHP](https://img.shields.io/badge/Made%20with-PHP-blue)  
+![License MIT](https://img.shields.io/badge/License-MIT-green)  
+![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-red)  
 ![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen)
 
 ---
 
-**VidyaSathi** is a dynamic educational platform that brings students and educators together in one vibrant online community. Whether you're studying for exams, sharing knowledge, or seeking help, VidyaSathi has your back!
+## 📌 Problem Statement
+
+**Problem Statement 8 — AI-powered educational community platform for resource sharing, mentorship, and doubt-solving.**
 
 ---
 
-## 🚀 Live Demo
+## 🎯 Objective
 
-🌐 Coming soon!  
-_(You can host the project on your local server via XAMPP for now.)_
-
----
-
-## 📑 Table of Contents
-
-- [Features](#-features)
-- [Technologies Used](#-technologies-used)
-- [Installation Guide](#-installation-guide)
-- [Configuration](#-configuration)
-- [How to Use](#-how-to-use)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Contact](#-contact)
+**VidyaSathi** solves the problem of disconnected educational resources and lack of mentorship by creating an open, community-powered platform.  
+It serves students, seniors, and educators by enabling resource sharing (notes, PYQs, video tutorials) and offering instant study support through an AI bot (**Veronica**).
 
 ---
 
-## 🚀 Features
+## 🧠 Team & Approach
 
-- 🔐 **User Authentication**  
-  Secure login and registration with role-based access (Student, Senior, Moderator, Admin)
+### Team Name:  
+`The_Bits`
 
-- 👤 **Profile Management**  
-  Customizable profiles with academic details and profile pictures
-
-- 📂 **Educational Resources**  
-  Upload, download, and access study materials, notes, and curated content
-
-- 💬 **Community Forum**  
-  Engage in meaningful discussions with nested comment support
-
-- 📚 **Previous Year Questions (PYQs)**  
-  Access and contribute past exam questions for better preparation
-
-- 🎥 **Video Tutorials**  
-  Curated educational video content for enhanced learning
-
-- 📱 **Responsive Design**  
-  Seamless experience across mobile, tablet, and desktop
+### Team Members:
+- M S Abhishek (Developer / GitHub: [MSAbhishek22](https://github.com/MSAbhishek22))
+- Aayushi Goel (Developer / GitHub: [Aayu095](https://github.com/Aayu095))
+### Your Approach:
+- Chose this problem to bridge the academic resource gap among students.
+- Focused on simple, accessible design using PHP & MySQL for maximum reach.
+- Integrated AI (Groq API) for providing real-time mentorship (via Veronica bot).
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠️ Tech Stack
 
-- **Frontend**: HTML, CSS, JavaScript, Tailwind CSS
-- **Backend**: PHP
-- **Database**: MySQL
-- **Server Environment**: XAMPP
+### Core Technologies Used:
+- Frontend: HTML, CSS, JavaScript, TailwindCSS
+- Backend: PHP
+- Database: MySQL
+- APIs: Groq API (for Veronica AI bot)
+- Hosting: XAMPP (Localhost)
 
----
-
-## ⚙️ Installation Guide
-
-1. **Clone the Repository**
-
-   ```bash
-   git clone https://github.com/MSAbhishek22/vidyasathi.git
-   ```
-
-2. **Move to XAMPP's htdocs Directory**
-
-   ```bash
-   C:\xampp\htdocs\vidyasathi
-   ```
-
-3. **Start Services**
-
-   - Open XAMPP Control Panel
-   - Start **Apache** and **MySQL**
-
-4. **Setup the Database**
-
-   - Open **phpMyAdmin** (http://localhost/phpmyadmin)
-   - Create a database named **vidyasathi**
-   - Import the `.sql` file from the `database/` directory
-
-5. **Access the Application**
-   ```bash
-   http://localhost/vidyasathi
-   ```
+### Sponsor Technologies Used:
+- ✅ **Groq:** Integrated Groq API to build Veronica, an AI mentor that assists students with study tips, resource suggestions, and productivity advice.
 
 ---
 
-## 🔧 Configuration
+## ✨ Key Features
 
-- Database settings are located in:
-  - `db.php`
-  - `config.php`
-- Update credentials according to your local environment if needed.
-
----
-
-## ✨ How to Use
-
-- Register and create your profile.
-- Log in and explore the dashboard.
-- Upload notes, PYQs, and video links.
-- Engage with the community through forums and comments.
-- Share resources and collaborate.
+- ✅ Secure role-based authentication (Student, Senior, Moderator, Admin)
+- ✅ Upload/download educational resources (notes, assignments, PYQs)
+- ✅ Community discussion forums with nested comments
+- ✅ Curated video tutorials for enhanced learning
+- ✅ AI Study Assistant **Veronica** powered by Groq for instant help
+- ✅ Fully responsive and mobile-friendly design
+- ✅ Database-driven resource management
+- ✅ Profile management with academic details
 
 ---
 
-## 🤝 Contributing
+## 📽️ Demo & Deliverables
 
-We believe **great communities build great platforms**.  
-Contributions, feature suggestions, and pull requests are warmly welcome! 💬
-
-To contribute:
-
-- Fork the project
-- Create your feature branch (`git checkout -b feature/FeatureName`)
-- Commit your changes (`git commit -m 'Add FeatureName'`)
-- Push to the branch (`git push origin feature/FeatureName`)
-- Open a Pull Request 🚀
+- **Demo Video Link:** (https://youtube.com/watch?v=oR6RUNqoRYI&feature=shared)
+- **Pitch Deck / PPT Link:** [Coming soon / To be updated]
 
 ---
 
-## 📄 License
+## ✅ Tasks & Bonus Checklist
 
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## 📬 Contact
-
-For any queries, ideas, or collaborations, reach out at:  
-📧 **msabhishekanni10@gmail.com**
+- [x] Followed at least 2 official Hackhazards social channels.
+- [x] Shared badge on LinkedIn/X and filled the badge form (2 bonus points).
+- [x] Signed up for Sprint.dev and filled the form (3 bonus points).
 
 ---
 
-© 2025 VidyaSathi | All Rights Reserved.
+## 🧪 How to Run the Project
+
+### Requirements:
+- XAMPP (Apache + MySQL)
+- Basic PHP and MySQL environment
+
+### Local Setup:
+```bash
+# Step 1: Clone the repository
+git clone https://github.com/MSAbhishek22/vidyasathi.git
+
+# Step 2: Move project folder to XAMPP's htdocs directory
+C:\xampp\htdocs\vidyasathi
+
+# Step 3: Start Apache and MySQL from XAMPP Control Panel
+
+# Step 4: Set up the database
+- Open http://localhost/phpmyadmin
+- Create a database named 'vidyasathi'
+- Import the provided .sql file (inside /database directory)
+
+# Step 5: Open in browser
+http://localhost/vidyasathi
+```
+
+---
+
+## 🧬 Future Scope
+
+- 📈 Add internship and project hubs for students
+- 🛡️ Implement advanced security features (rate limiting, 2FA)
+- 🌐 Introduce multilingual support for broader accessibility
+- 🤖 Build a smarter version of Veronica using RAG and fine-tuned LLMs
+
+---
+
+## 📎 Resources / Credits
+
+- Groq API for powering Veronica AI Assistant
+- TailwindCSS for rapid UI development
+- Open educational content sources for video tutorials
+
+---
+
+## 🏁 Final Words
+
+VidyaSathi is more than just a resource-sharing website — it's a movement toward **community-driven education**.  
+Through teamwork, innovation, and the power of AI, we aim to **make learning collaborative, accessible, and exciting** for students everywhere.  
+Grateful to be part of **Hackhazards'25** journey! 🚀
+
+---
