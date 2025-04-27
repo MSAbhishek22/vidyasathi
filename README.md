@@ -15,7 +15,7 @@
 
 ## 📌 Problem Statement
 
-**Problem Statement 8 — AI-powered educational community platform for resource sharing, mentorship, and doubt-solving.**
+**Problem Statement 1 — Weave AI magic with Groq.**
 
 ---
 
