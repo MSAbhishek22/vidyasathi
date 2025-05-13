@@ -5,10 +5,13 @@ from datetime import datetime
 import os
 import sys
 from flask_cors import CORS
+from dotenv import load_dotenv
 
-# Direct API key assignment
-os.environ['GROQ_API_KEY'] = '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'
-GROQ_API_KEY = os.environ['GROQ_API_KEY']
+# Load environment variables from .env if present
+load_dotenv()
+
+# Get API key from environment variable
+GROQ_API_KEY = os.environ.get('GROQ_API_KEY')
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
