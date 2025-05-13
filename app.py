@@ -6,16 +6,11 @@ import os
 import sys
 from flask_cors import CORS
 
-# Set the right path for templates
-chatbot_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'chatbot')
-
 # Direct API key assignment
 os.environ['GROQ_API_KEY'] = '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'
 GROQ_API_KEY = os.environ['GROQ_API_KEY']
 
-app = Flask(__name__, 
-            template_folder=os.path.join(chatbot_dir, 'templates'),
-            static_folder=os.path.join(chatbot_dir, 'static'))
+app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 GROQ_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions"
@@ -23,7 +18,7 @@ MODEL = "llama3-8b-8192"
 
 # Create table for chat history
 def init_db():
-    db_path = os.path.join(chatbot_dir, "chat_history.db")
+    db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "chat_history.db")
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     cursor.execute('''
@@ -39,7 +34,7 @@ def init_db():
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return "Veronica Chatbot API is running."
 
 @app.route("/chat", methods=["POST"])
 def chat():
@@ -47,7 +42,7 @@ def chat():
         data = request.get_json()
         if not data:
             return jsonify({"reply": "Invalid JSON data"}), 400
-            
+        
         user_input = data.get("message")
         if not user_input:
             return jsonify({"reply": "No message provided"}), 400
@@ -55,11 +50,18 @@ def chat():
         # Save the user message to the database
         save_message("user", user_input)
         
-        # Prepare messages for the API
-        messages = [
-            {"role": "system", "content": "You are Veronica, a helpful educational AI assistant. You provide clear and concise answers to academic questions, helping users understand complex topics."},
-            {"role": "user", "content": user_input}
-        ]
+        # Use the prompt as the system message if it contains instructions
+        if "User:" in user_input:
+            system_prompt, user_message = user_input.split("User:", 1)
+            messages = [
+                {"role": "system", "content": system_prompt.strip()},
+                {"role": "user", "content": user_message.strip()}
+            ]
+        else:
+            messages = [
+                {"role": "system", "content": "You are Veronica, a helpful educational AI assistant. You provide clear and concise answers to academic questions, helping users understand complex topics."},
+                {"role": "user", "content": user_input}
+            ]
         
         # Add history from the database
         history = get_chat_history(5)  # Get the last 5 exchanges
@@ -98,7 +100,7 @@ def chat():
         return jsonify({"reply": f"An error occurred: {str(e)}"}), 500
 
 def save_message(role, message):
-    db_path = os.path.join(chatbot_dir, "chat_history.db")
+    db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "chat_history.db")
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -108,7 +110,7 @@ def save_message(role, message):
     conn.close()
 
 def get_chat_history(limit=5):
-    db_path = os.path.join(chatbot_dir, "chat_history.db")
+    db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "chat_history.db")
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     cursor.execute("SELECT role, message FROM messages ORDER BY id DESC LIMIT ?", (limit * 2,))
@@ -122,7 +124,6 @@ if __name__ == "__main__":
     print(f"Starting Veronica Chatbot server...")
     print(f"API Key exists: {GROQ_API_KEY is not None}")
     print(f"API Key value: {GROQ_API_KEY[:10]}...")
-    print(f"Template directory: {app.template_folder}")
     
     init_db()
     app.run(host='0.0.0.0', port=5000, debug=True) 

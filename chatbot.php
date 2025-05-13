@@ -19,190 +19,318 @@ $page_title = 'AI Assistant - VidyaSathi';
 include 'header.php';
 ?>
 
-<div class="py-6"></div>
-
-<div class="container mx-auto px-4 my-8">
-    <div class="max-w-5xl mx-auto">
-        <div class="bg-card-bg rounded-lg shadow-lg overflow-hidden border border-gray-800">
-            <!-- AI Assistant Header -->
-            <div class="p-6 border-b border-gray-800 bg-dark">
-                <h1 class="text-2xl font-bold flex items-center">
-                    <i class="fas fa-robot text-primary mr-3"></i>
-                    Veronica AI Assistant
-                </h1>
-                <p class="text-gray-400 mt-2">
-                    Your personal AI learning assistant. Ask questions about your studies, get help with assignments,
-                    or discuss educational topics.
-                </p>
-            </div>
-
-            <!-- Chatbot Interface - Direct implementation -->
-            <div class="p-4 md:p-6">
-                <div id="chatInterface" class="w-full h-full">
-                    <!-- Chatbot UI -->
-                    <div class="chat-container" style="max-width: 100%; height: 600px;">
-                        <div class="chat-header">
-                            🤖 Veronica - Your Assistant
-                            <div>
-                                <div class="voice-selector">
-                                    <button id="voice-select-btn" title="Select Voice"><i
-                                            class="fas fa-robot"></i></button>
-                                    <div class="voice-options" id="voice-options">
-                                        <div class="voice-option" data-voice="female">Female Voice</div>
-                                        <div class="voice-option" data-voice="male">Male Voice</div>
-                                    </div>
-                                </div>
-                                <button id="mute-btn" title="Mute/Unmute Bot"><i class="fas fa-volume-up"></i></button>
-                                <button class="theme-toggle" onclick="toggleTheme()"><i
-                                        class="fas fa-adjust"></i></button>
-                            </div>
-                        </div>
-                        <div class="chat-history" id="chat-history">
-                            <div class="message bot-message">Hi, I'm Veronica! How can I assist you today?</div>
-                        </div>
-                        <div id="thinking"></div>
-                        <div class="input-area">
-                            <textarea id="user-input" rows="1" placeholder="Ask Veronica..."></textarea>
-                            <button id="voice-toggle"><i class="fas fa-volume-up"></i></button>
-                            <button id="mic-btn"><i class="fas fa-microphone"></i></button>
-                            <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
-                        </div>
-                    </div>
+<body>
+    <div style="height: 4px;"></div>
+    <div class="container mx-auto px-4 my-0" style="background: #181a20;">
+        <div class="max-w-5xl mx-auto" style="padding: 0;">
+            <div class="bg-card-bg rounded-lg shadow-lg overflow-hidden border border-gray-800">
+                <!-- AI Assistant Header -->
+                <div class="p-6 border-b border-gray-800 bg-dark">
+                    <h1 class="text-2xl font-bold flex items-center">
+                        <i class="fas fa-robot text-primary mr-3"></i>
+                        Veronica AI Assistant
+                    </h1>
+                    <p class="text-gray-400 mt-2">
+                        I'm Veronica, your personal student wellness and productivity companion. You can talk to me
+                        about stress, motivation, time management, mental well-being, or anything else on your mind.
+                    </p>
                 </div>
 
-                <!-- Features & Tips Section -->
-                <div class="mt-8 pt-6 border-t border-gray-800">
-                    <h3 class="text-xl font-semibold mb-4">
-                        <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
-                        Features & Tips
-                    </h3>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-dark p-4 rounded-lg">
-                            <h4 class="font-semibold text-primary mb-2">
-                                <i class="fas fa-microphone mr-2"></i>
-                                Voice Input
-                            </h4>
-                            <p class="text-gray-300">Click the microphone icon to speak with Veronica. Perfect for
-                                hands-free interaction.</p>
-                        </div>
-
-                        <div class="bg-dark p-4 rounded-lg">
-                            <h4 class="font-semibold text-primary mb-2">
-                                <i class="fas fa-volume-up mr-2"></i>
-                                Text-to-Speech
-                            </h4>
-                            <p class="text-gray-300">Let Veronica speak responses to you. Toggle voice output on/off as
-                                needed.</p>
-                        </div>
-
-                        <div class="bg-dark p-4 rounded-lg">
-                            <h4 class="font-semibold text-primary mb-2">
-                                <i class="fas fa-question-circle mr-2"></i>
-                                Study Help
-                            </h4>
-                            <p class="text-gray-300">Ask about topics you're studying, request explanations, or get
-                                study tips.</p>
-                        </div>
-
-                        <div class="bg-dark p-4 rounded-lg">
-                            <h4 class="font-semibold text-primary mb-2">
-                                <i class="fas fa-moon mr-2"></i>
-                                Theme Options
-                            </h4>
-                            <p class="text-gray-300">Toggle between light and dark modes for comfortable day/night
-                                studying.</p>
+                <!-- Chatbot Interface - Direct implementation -->
+                <div class="p-4 md:p-6">
+                    <div id="chatInterface" class="w-full h-full">
+                        <!-- Chatbot UI -->
+                        <div class="chat-container" style="max-width: 100%; height: 600px;">
+                            <div class="chat-header">
+                                🤖 Veronica - Your Assistant
+                                <div>
+                                    <div class="voice-selector">
+                                        <button id="voice-select-btn" title="Select Voice"><i
+                                                class="fas fa-robot"></i></button>
+                                        <div class="voice-options" id="voice-options">
+                                            <div class="voice-option" data-voice="female">Female Voice</div>
+                                            <div class="voice-option" data-voice="male">Male Voice</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chat-history" id="chat-history">
+                                <div class="message bot-message">
+                                    Hey there! I'm Veronica — your well-being and productivity buddy. Feeling stressed?
+                                    Need motivation or just want to talk it out? I'm here for you.
+                                </div>
+                            </div>
+                            <div id="thinking"></div>
+                            <div class="input-area">
+                                <select id="modeSelector"
+                                    class="ml-2 p-1 rounded border bg-[#23272f] text-white text-sm"
+                                    style="width: 160px; min-width: 120px;">
+                                    <option value="wellness">🧠 Mental Wellness</option>
+                                    <option value="study">📘 Study Help</option>
+                                    <option value="motivation">�� Motivation</option>
+                                </select>
+                                <textarea id="user-input" rows="2" style="min-height:44px;"
+                                    placeholder="Ask Veronica..."></textarea>
+                                <button id="voice-toggle"><i class="fas fa-volume-up"></i></button>
+                                <button id="mic-btn"><i class="fas fa-microphone"></i></button>
+                                <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    <!-- Features Section -->
+    <div class="max-w-5xl mx-auto mt-0 mb-2" style="color: #fff;">
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; justify-items: center;">
+            <div
+                style="background:#23272f; border-radius:12px; padding:16px 20px; min-width:180px; display:flex; align-items:center; gap:12px; box-shadow:0 2px 8px 0 rgba(0,0,0,0.10); margin-bottom: 0;">
+                <i class="fas fa-brain" style="font-size:2rem; color:#d4af37;"></i>
+                <div>
+                    <div style="font-weight:600;">Mental Wellness</div>
+                    <div style="font-size:0.97rem; color:#ccc;">Talk about stress, anxiety, or motivation. Get self-care
+                        tips and support.</div>
+                </div>
+            </div>
+            <div
+                style="background:#23272f; border-radius:12px; padding:16px 20px; min-width:180px; display:flex; align-items:center; gap:12px; box-shadow:0 2px 8px 0 rgba(0,0,0,0.10); margin-bottom: 0;">
+                <i class="fas fa-book-open" style="font-size:2rem; color:#d4af37;"></i>
+                <div>
+                    <div style="font-weight:600;">Study Help</div>
+                    <div style="font-size:0.97rem; color:#ccc;">Ask for study tips, explanations, or help with
+                        assignments and concepts.</div>
+                </div>
+            </div>
+            <div
+                style="background:#23272f; border-radius:12px; padding:16px 20px; min-width:180px; display:flex; align-items:center; gap:12px; box-shadow:0 2px 8px 0 rgba(0,0,0,0.10); margin-bottom: 0;">
+                <i class="fas fa-bullseye" style="font-size:2rem; color:#d4af37;"></i>
+                <div>
+                    <div style="font-weight:600;">Goal Motivation</div>
+                    <div style="font-size:0.97rem; color:#ccc;">Get encouragement, productivity hacks, and help with
+                        time management.</div>
+                </div>
+            </div>
+            <div
+                style="background:#23272f; border-radius:12px; padding:16px 20px; min-width:180px; display:flex; align-items:center; gap:12px; box-shadow:0 2px 8px 0 rgba(0,0,0,0.10); margin-bottom: 0;">
+                <i class="fas fa-user-friends" style="font-size:2rem; color:#d4af37;"></i>
+                <div>
+                    <div style="font-weight:600;">Personal Support</div>
+                    <div style="font-size:0.97rem; color:#ccc;">Share your thoughts or worries. Veronica listens without
+                        judgment.</div>
+                </div>
+            </div>
+            <div
+                style="background:#23272f; border-radius:12px; padding:16px 20px; min-width:180px; display:flex; align-items:center; gap:12px; box-shadow:0 2px 8px 0 rgba(0,0,0,0.10); margin-bottom: 0;">
+                <i class="fas fa-heartbeat" style="font-size:2rem; color:#d4af37;"></i>
+                <div>
+                    <div style="font-weight:600;">Self-Care Tips</div>
+                    <div style="font-size:0.97rem; color:#ccc;">Get actionable advice for breaks, mindfulness, and
+                        healthy habits.</div>
+                </div>
+            </div>
+            <div
+                style="background:#23272f; border-radius:12px; padding:16px 20px; min-width:180px; display:flex; align-items:center; gap:12px; box-shadow:0 2px 8px 0 rgba(0,0,0,0.10); margin-bottom: 0;">
+                <i class="fas fa-lightbulb" style="font-size:2rem; color:#d4af37;"></i>
+                <div>
+                    <div style="font-weight:600;">Productivity Hacks</div>
+                    <div style="font-size:0.97rem; color:#ccc;">Learn Pomodoro, time management, and focus techniques.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 
 <!-- Include marked.js for Markdown support -->
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
 <!-- Chatbot Styles -->
 <style>
-    body {
-        transition: background-color 0.3s ease;
-    }
-
-    .dark-mode {
-        background-color: #1e1e1e;
+    body,
+    .container,
+    .max-w-5xl,
+    .mx-auto,
+    .bg-card-bg,
+    .p-4,
+    .md\:p-6,
+    .p-6,
+    .border,
+    .border-gray-800,
+    .bg-dark {
+        background: #181a20 !important;
+        color: #fff !important;
+        box-shadow: none !important;
+        border: none !important;
     }
 
     .chat-container {
-        background-color: #fff;
+        background: #23272f !important;
+        border-radius: 18px;
+        box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.10);
+        color: #fff !important;
         width: 100%;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-        border-radius: 12px;
+        max-width: 700px;
+        margin: 0 auto;
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        transition: background-color 0.3s ease;
-    }
-
-    .dark-mode .chat-container {
-        background-color: #2e2e2e;
+        min-height: 500px;
     }
 
     .chat-header {
-        background-color: #4a90e2;
-        color: white;
-        padding: 16px;
-        text-align: center;
+        background: #d4af37 !important;
+        color: #23272f !important;
+        border-top-left-radius: 18px;
+        border-top-right-radius: 18px;
+        padding: 18px 24px;
         font-size: 1.2rem;
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        border-bottom: 1px solid #23272f;
+    }
+
+    .chat-header i,
+    .chat-header svg {
+        color: #23272f !important;
+    }
+
+    .chat-history {
+        background: #23272f !important;
+        color: #fff !important;
+        flex: 1;
+        padding: 32px 24px 16px 24px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        min-height: 300px;
+    }
+
+    .message {
+        display: flex;
+        align-items: flex-end;
+        gap: 12px;
+        margin-bottom: 0;
+    }
+
+    .user-message,
+    .bot-message {
+        padding: 14px 20px;
+        border-radius: 16px;
+        font-size: 1.08rem;
+        max-width: 70%;
+        word-break: break-word;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.04);
+    }
+
+    .user-message {
+        background: #375a7f !important;
+        color: #fff !important;
+        margin-left: auto;
+        border-bottom-right-radius: 4px;
+    }
+
+    .bot-message {
+        background: #313543 !important;
+        color: #fff !important;
+        margin-right: auto;
+        border-bottom-left-radius: 4px;
+    }
+
+    .avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: #313543;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #d4af37;
+    }
+
+    .input-area {
+        background: #23272f !important;
+        display: flex;
+        gap: 8px;
+        padding: 14px 18px;
+        border-top: 1px solid #313543;
+        align-items: flex-end;
+    }
+
+    #modeSelector {
+        background: #23272f !important;
+        color: #fff !important;
+        border: 1px solid #313543;
+        font-size: 0.95rem;
+        min-width: 120px;
+        max-width: 160px;
+        height: 38px;
+        margin-right: 4px;
+    }
+
+    #user-input {
+        flex: 1;
+        padding: 12px 14px;
+        font-size: 1rem;
+        border-radius: 10px;
+        border: 1px solid #313543;
+        background: #181a20 !important;
+        color: #fff !important;
+        outline: none;
+        min-height: 44px;
+        max-height: 80px;
+        resize: vertical;
+        transition: border 0.2s;
+    }
+
+    #user-input:focus {
+        border: 1.5px solid #d4af37;
+    }
+
+    #send-btn,
+    #mic-btn,
+    #voice-toggle {
+        padding: 0 14px;
+        background: #d4af37 !important;
+        color: #23272f !important;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        height: 44px;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+    }
+
+    #send-btn:hover,
+    #mic-btn:hover,
+    #voice-toggle:hover {
+        background: #bfa133 !important;
+    }
+
+    #thinking {
+        text-align: left;
+        font-style: italic;
+        color: #d4af37;
+        padding: 0 0 0 60px;
+        font-size: 1rem;
+        margin-bottom: 8px;
     }
 
     .theme-toggle {
         background: none;
         border: none;
-        color: white;
+        color: #fff;
         font-size: 1.2rem;
         cursor: pointer;
-    }
-
-    .chat-history {
-        flex: 1;
-        padding: 20px;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        height: 400px;
-    }
-
-    .message {
-        max-width: 80%;
-        padding: 12px 16px;
-        border-radius: 16px;
-        line-height: 1.5;
-        animation: fadeIn 0.3s ease-in-out;
-    }
-
-    .user-message {
-        background-color: #d4edda;
-        align-self: flex-end;
-    }
-
-    .bot-message {
-        background-color: #e9ecef;
-        align-self: flex-start;
-    }
-
-    .dark-mode .user-message {
-        background-color: #375a7f;
-        color: #fff;
-    }
-
-    .dark-mode .bot-message {
-        background-color: #444;
-        color: #eee;
     }
 
     @keyframes fadeIn {
@@ -217,74 +345,6 @@ include 'header.php';
         }
     }
 
-    .input-area {
-        display: flex;
-        gap: 10px;
-        padding: 16px;
-        border-top: 1px solid #ddd;
-    }
-
-    #user-input {
-        flex: 1;
-        padding: 12px;
-        font-size: 1rem;
-        border-radius: 8px;
-        border: 1px solid #ccc;
-        background-color: #fff;
-        color: #333;
-    }
-
-    .dark-mode #user-input {
-        background-color: #333;
-        color: #eee;
-        border-color: #555;
-    }
-
-    #send-btn,
-    #mic-btn,
-    #voice-toggle {
-        padding: 10px 14px;
-        background-color: #4a90e2;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-    }
-
-    #send-btn:hover,
-    #mic-btn:hover,
-    #voice-toggle:hover {
-        background-color: #3b7ccc;
-    }
-
-    #thinking {
-        text-align: center;
-        font-style: italic;
-        color: gray;
-        padding: 5px;
-    }
-
-    #mute-btn {
-        padding: 10px 14px;
-        background-color: #4a90e2;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-    }
-
-    #mute-btn:hover {
-        background-color: #3b7ccc;
-    }
-
-    .muted {
-        background-color: #dc3545 !important;
-    }
-
-    .paused {
-        background-color: #ffc107 !important;
-    }
-
     .voice-selector {
         position: relative;
         display: inline-block;
@@ -294,7 +354,7 @@ include 'header.php';
         display: none;
         position: absolute;
         right: 0;
-        background-color: white;
+        background-color: #23272f;
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
@@ -310,30 +370,18 @@ include 'header.php';
         padding: 12px 16px;
         text-decoration: none;
         display: block;
-        color: #333;
+        color: #fff;
         cursor: pointer;
     }
 
     .voice-option:hover {
-        background-color: #f1f1f1;
-    }
-
-    .dark-mode .voice-options {
-        background-color: #2e2e2e;
-    }
-
-    .dark-mode .voice-option {
-        color: #eee;
-    }
-
-    .dark-mode .voice-option:hover {
-        background-color: #444;
+        background-color: #313543;
     }
 
     #voice-select-btn {
         padding: 10px 14px;
-        background-color: #4a90e2;
-        color: white;
+        background-color: #d4af37;
+        color: #23272f;
         border: none;
         border-radius: 8px;
         cursor: pointer;
@@ -341,7 +389,7 @@ include 'header.php';
     }
 
     #voice-select-btn:hover {
-        background-color: #3b7ccc;
+        background-color: #bfa133;
     }
 </style>
 
@@ -356,6 +404,7 @@ include 'header.php';
     const thinkingDiv = document.getElementById("thinking");
     const voiceSelectBtn = document.getElementById("voice-select-btn");
     const voiceOptions = document.getElementById("voice-options");
+    const modeSelector = document.getElementById("modeSelector");
 
     // API endpoint - point to the Flask server
     const apiEndpoint = "http://localhost:5000/chat";
@@ -367,24 +416,38 @@ include 'header.php';
     let currentUtterance = null;
     let selectedVoice = "female"; // Default to female voice
 
-    function toggleTheme() {
-        document.body.classList.toggle("dark-mode");
-    }
-
     function appendMessage(text, isUser = false) {
         const msgDiv = document.createElement("div");
         msgDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+        // Add avatar
+        const avatar = document.createElement('div');
+        avatar.className = 'avatar';
+        avatar.innerHTML = isUser ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+        if (isUser) {
+            msgDiv.appendChild(avatar);
+        }
+        const content = document.createElement('div');
         try {
-            // Check if text is undefined or null before parsing
             if (text === undefined || text === null) {
-                msgDiv.textContent = "Error: Empty response received";
+                content.textContent = "Error: Empty response received";
             } else {
-                msgDiv.innerHTML = marked.parse(text);
+                // Highlight important words and improve spacing
+                let formatted = text
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // bold
+                    .replace(/\*(.*?)\*/g, '<em>$1</em>') // italic
+                    .replace(/\n/g, '<br>') // newlines
+                    .replace(/(stress(ed|ful)?|motivat(e|ed|ion|ing)?|well-being|support(s|ed|ing)?|stud(y|ies|ied|ying)?|goal(s)?|productivit(y|ies)?|listen(s|ed|ing)?|help(s|ed|ing)?|assign(ment|ments)?|explain(s|ed|ing|ation)?|encourag(e|ed|ing|ement)?|self-care|time management|memorize(s|d|ing)?|achiev(e|ed|ing|ement)?|celebrat(e|ed|ing|ion)?|break(s|ing)?|reward(s|ed|ing)?|progress|focus(ed|ing)?|burnout|group(s)?|victor(y|ies)?|success|believe(s|d|ing)?)/gi, '<span style="color:#d4af37;font-weight:600;">$1</span>');
+                content.innerHTML = formatted;
+                content.style.lineHeight = '1.7';
+                content.style.letterSpacing = '0.01em';
+                content.style.margin = '4px 0';
             }
         } catch (error) {
-            console.error("Marked parsing error:", error);
-            // Fallback to plain text if parsing fails
-            msgDiv.textContent = text || "Error displaying message";
+            content.textContent = text || "Error displaying message";
+        }
+        msgDiv.appendChild(content);
+        if (!isUser) {
+            msgDiv.insertBefore(avatar, msgDiv.firstChild);
         }
         chatHistory.appendChild(msgDiv);
         chatHistory.scrollTop = chatHistory.scrollHeight;
@@ -411,17 +474,13 @@ include 'header.php';
         let voice;
 
         if (voiceType === "female") {
-            // Try to find a female voice
             voice = voices.find(v => v.name.includes("Female") || v.name.includes("female") || v.name.includes("Samantha") || v.name.includes("Zira"));
             if (!voice) {
-                // Fallback to any available voice
                 voice = voices[0];
             }
         } else {
-            // Try to find a male voice
             voice = voices.find(v => v.name.includes("Male") || v.name.includes("male") || v.name.includes("David") || v.name.includes("Mark"));
             if (!voice) {
-                // Fallback to any available voice
                 voice = voices[0];
             }
         }
@@ -451,17 +510,44 @@ include 'header.php';
             '<i class="fas fa-volume-mute"></i>';
     }
 
+    // Remove duplicate volume icon from chat header (if present)
+    document.addEventListener("DOMContentLoaded", function () {
+        const chatHeader = document.querySelector('.chat-header');
+        if (chatHeader) {
+            const icons = chatHeader.querySelectorAll('button i.fas.fa-volume-up, button i.fas.fa-volume-mute');
+            if (icons.length > 1) {
+                icons[1].parentElement.remove();
+            }
+        }
+    });
+
+    function getModePromptPrefix(mode) {
+        switch (mode) {
+            case "wellness":
+                return "You're a friendly mental health assistant. Focus on empathy, self-care tips, mindfulness, and motivation.";
+            case "study":
+                return "You're an academic assistant. Help with study tips, concepts, and assignments.";
+            case "motivation":
+                return "You're a motivational coach. Give encouragement, productivity hacks, and support.";
+            default:
+                return "You're a helpful assistant.";
+        }
+    }
+
     function sendMessage() {
         const message = userInput.value.trim();
+        const selectedMode = modeSelector.value;
+        const promptPrefix = getModePromptPrefix(selectedMode);
         if (!message) return;
         appendMessage(message, true);
         userInput.value = "";
         thinkingDiv.innerText = "Veronica is thinking...";
 
+        // Send the prompt prefix and user message to the backend
         fetch(apiEndpoint, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message })
+            body: JSON.stringify({ message: `${promptPrefix}\nUser: ${message}` })
         })
             .then(res => {
                 if (!res.ok) {
@@ -475,7 +561,6 @@ include 'header.php';
                     appendMessage(data.reply);
                     speak(data.reply);
                 } else if (data.response) {
-                    // Backward compatibility with previous API format
                     appendMessage(data.response);
                     speak(data.response);
                 } else {
@@ -487,6 +572,43 @@ include 'header.php';
                 appendMessage("❌ Error: " + err.message);
                 console.error("Fetch error:", err);
             });
+    }
+
+    // Only speak visible text (strip HTML tags and hidden formatting)
+    async function speak(text) {
+        if (!voiceEnabled || isMuted) return;
+        // Remove all HTML tags and decode entities
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = text;
+        const cleanText = tempDiv.textContent || tempDiv.innerText || "";
+        try {
+            const utterance = new SpeechSynthesisUtterance(cleanText);
+            const voice = await setVoice(selectedVoice);
+            utterance.voice = voice;
+
+            if (isPaused) {
+                speechQueue.push(utterance);
+                return;
+            }
+
+            utterance.onend = () => {
+                if (speechQueue.length > 0) {
+                    currentUtterance = speechQueue.shift();
+                    window.speechSynthesis.speak(currentUtterance);
+                } else {
+                    currentUtterance = null;
+                }
+            };
+
+            if (window.speechSynthesis.speaking) {
+                speechQueue.push(utterance);
+            } else {
+                currentUtterance = utterance;
+                window.speechSynthesis.speak(utterance);
+            }
+        } catch (error) {
+            console.error("Speech synthesis error:", error);
+        }
     }
 
     sendBtn.addEventListener("click", sendMessage);
@@ -592,55 +714,6 @@ include 'header.php';
             voiceOptions.classList.remove("show");
         }
     });
-
-    // Function to speak with selected voice
-    async function speak(text) {
-        if (!voiceEnabled || isMuted) return;
-
-        const cleanText = cleanTextForSpeech(text);
-        try {
-            const utterance = new SpeechSynthesisUtterance(cleanText);
-            const voice = await setVoice(selectedVoice);
-            utterance.voice = voice;
-
-            if (isPaused) {
-                speechQueue.push(utterance);
-                return;
-            }
-
-            utterance.onend = () => {
-                if (speechQueue.length > 0) {
-                    currentUtterance = speechQueue.shift();
-                    window.speechSynthesis.speak(currentUtterance);
-                } else {
-                    currentUtterance = null;
-                }
-            };
-
-            if (window.speechSynthesis.speaking) {
-                speechQueue.push(utterance);
-            } else {
-                currentUtterance = utterance;
-                window.speechSynthesis.speak(utterance);
-            }
-        } catch (error) {
-            console.error("Speech synthesis error:", error);
-        }
-    }
-
-    // Function to clean markdown formatting
-    function cleanTextForSpeech(text) {
-        // Remove markdown formatting
-        return text
-            .replace(/\*\*(.*?)\*\*/g, '$1') // Remove bold
-            .replace(/\*(.*?)\*/g, '$1')      // Remove italic
-            .replace(/`(.*?)`/g, '$1')        // Remove code
-            .replace(/#{1,6}\s/g, '')         // Remove headings
-            .replace(/\[(.*?)\]\(.*?\)/g, '$1') // Remove links
-            .replace(/\n/g, ' ')              // Replace newlines with spaces
-            .replace(/\s+/g, ' ')             // Normalize whitespace
-            .trim();
-    }
 </script>
 
 <?php include 'footer.php'; ?>
