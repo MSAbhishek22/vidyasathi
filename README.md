@@ -1,6 +1,13 @@
+
 # 📚 VidyaSathi – Empowering the Educational Community
 
-![Made with PHP](https://img.shields.io/badge/Made%20with-PHP-blue)
+![Made with React](https://img.shields.io/badge/Made%20with-React-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-blue)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-38B2AC)
+![shadcn/ui](https://img.shields.io/badge/UI-shadcn/ui-black)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E)
+![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-336791?logo=postgresql)
+![Vite](https://img.shields.io/badge/Build-Vite-646cff?logo=vite)
 ![License MIT](https://img.shields.io/badge/License-MIT-green)
 ![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-red)
 ![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen)
@@ -13,8 +20,7 @@
 
 ## 🚀 Live Demo
 
-🌐 Coming soon!  
-_(You can host the project on your local server via XAMPP for now.)_
+🔗 **Live Site**: [Visit VidyaSathi](https://vidyasathi.vercel.app/)
 
 ---
 
@@ -25,11 +31,11 @@ _(You can host the project on your local server via XAMPP for now.)_
 - [Technologies Used](#-technologies-used)
 - [Installation Guide](#-installation-guide)
 - [Configuration](#-configuration)
+- [API Key Protection & Environment Setup](#-api-key-protection--environment-setup)
 - [How to Use](#-how-to-use)
 - [Contributing](#-contributing)
 - [License](#-license)
 - [Contact](#-contact)
-- [API Key Protection & Environment Setup](#-api-key-protection--environment-setup)
 
 ---
 
@@ -71,17 +77,21 @@ _(You can host the project on your local server via XAMPP for now.)_
 - Modern, dark-themed UI inspired by Perplexity.ai  
 - Mode selector for Wellness, Study, and Motivation  
 - Voice input/output, avatars, and beautiful message formatting  
-- Secure API key management (see below)
+- Secure API key management via Supabase Edge Functions
 
 ---
 
 ## 🛠️ Technologies Used
 
-- **Frontend**: HTML, CSS, JavaScript, Tailwind CSS  
-- **Backend**: PHP  
-- **Database**: MySQL  
-- **Server Environment**: XAMPP
-
+- **Frontend**: React, TypeScript, Tailwind CSS
+- **UI Components**: shadcn/ui, Radix UI
+- **Backend**: Supabase (Database, Authentication, Edge Functions, Real-time DB)
+- **Build Tool**: Vite
+- **AI Integration**: Google Gemini (via Supabase Edge Functions)
+- **State Management**: TanStack Query
+- **Package Manager**: Bun
+- **Deployment**: Vercel, GitHub
+  
 ---
 
 ## ⚙️ Installation Guide
@@ -89,41 +99,75 @@ _(You can host the project on your local server via XAMPP for now.)_
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/MSAbhishek22/vidyasathi.git
-
-
-2. **Move to XAMPP's htdocs Directory**
-
-   ```bash
-   C:\xampp\htdocs\vidyasathi
+   git clone https://github.com/yourusername/vidyasathi.git
+   cd vidyasathi
    ```
 
-3. **Start Services**
-
-   * Open XAMPP Control Panel
-   * Start **Apache** and **MySQL**
-
-4. **Setup the Database**
-
-   * Open **phpMyAdmin** ([http://localhost/phpmyadmin](http://localhost/phpmyadmin))
-   * Create a database named **vidyasathi**
-   * Import the `.sql` file from the `database/` directory
-
-5. **Access the Application**
+2. **Install Dependencies**
 
    ```bash
-   http://localhost/vidyasathi
+   npm install
+   ```
+
+3. **Setup Supabase**
+
+   * Create a new project on [Supabase](https://supabase.com)
+   * Copy your project URL and anon key
+   * Run the database migrations from the `supabase/migrations/` directory
+
+4. **Environment Configuration**
+
+   * Configure your Supabase credentials in the project settings
+   * Set up any required API keys via Supabase secrets (see configuration section below)
+
+5. **Start Development Server**
+
+   ```bash
+   npm run dev
+   ```
+
+6. **Access the Application**
+
+   ```bash
+   http://localhost:5173
    ```
 
 ---
 
 ## 🔧 Configuration
 
-* Database settings are located in:
+### Supabase Setup
 
-  * `db.php`
-  * `config.php`
-* Update credentials according to your local environment if needed.
+* Database settings are configured in `src/integrations/supabase/client.ts`
+* Authentication and database schemas are defined in the migrations
+* Edge functions for AI chatbot are located in `supabase/functions/`
+
+### API Keys
+
+* AI chatbot requires a Gemini API key stored in Supabase secrets
+* Configure secrets via Project Settings → Secrets in your Supabase dashboard
+* Required secrets: `GEMINI_API_KEY`
+
+---
+
+## 🔒 API Key Protection & Environment Setup
+
+**API keys are securely managed through Supabase!**
+
+* The chatbot uses Supabase Edge Functions to securely handle API requests
+* API keys are stored as Supabase secrets and never exposed to the frontend
+* To configure API keys:
+  1. Go to your Supabase project dashboard
+  2. Navigate to Project Settings → Secrets
+  3. Add your `GEMINI_API_KEY` secret
+  4. The Edge Functions automatically use these secrets securely
+
+* For local development with Supabase CLI:
+  ```bash
+  supabase secrets set GEMINI_API_KEY=your_api_key_here
+  ```
+
+* No `.env` files needed - Supabase handles all environment configuration!
 
 ---
 
@@ -133,6 +177,7 @@ _(You can host the project on your local server via XAMPP for now.)_
 * Log in and explore the dashboard
 * Upload notes, PYQs, and video links
 * Engage with the community through forums and comments
+* Chat with Veronica AI for study help and wellness support
 * Share resources and collaborate
 
 ---
@@ -161,29 +206,8 @@ This project is licensed under the [MIT License](LICENSE).
 ## 📬 Contact
 
 For any queries, ideas, or collaborations, reach out at:
-📧 **[msabhishekanni10@gmail.com](mailto:msabhishekanni10@gmail.com)**
-
----
-
-## 🔒 API Key Protection & Environment Setup
-
-**Never expose your API key in code or on GitHub!**
-
-* The chatbot backend loads the API key from an environment variable using a `.env` file (see `.gitignore`)
-
-* To run locally, create a `.env` file in your project root:
-
-  ```
-  GROQ_API_KEY=your_real_api_key_here
-  ```
-
-* The `.env` file is ignored by git and will not be pushed to GitHub.
+📧 **[aayushigoel73@gmail.com](mailto:aayushigoel73@gmail.com)**
 
 ---
 
 © 2025 VidyaSathi | All Rights Reserved.
-
-
-
-
-
